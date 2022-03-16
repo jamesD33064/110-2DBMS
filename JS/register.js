@@ -8,11 +8,11 @@ function test(){
         alert("身分證輸入錯誤");
         return false;
     }
-    if(num_1 != num_2){
+    if(password_1 != password_2){
         alert("密碼輸入錯誤");
         return false;
     }
-    if(!check.checked){
+    if(!agree.checked){
         alert("確認同意條款");
         return false;
     }
