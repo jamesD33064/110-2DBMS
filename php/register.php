@@ -34,11 +34,6 @@
 
     mysqli_close($link);
 
-    
     // $password_hash=password_hash($password,PASSWORD_DEFAULT);
     
-
-
-
 ?>
-
