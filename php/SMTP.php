@@ -1,31 +1,17 @@
 <?php
+$from = "hueyan@ms2.hinet.net";
+mb_internal_encoding("utf-8");
+$to="james0120160379@gmail.com";
+$subject=mb_encode_mimeheader("PHP自動發信","utf-8");
+$message="中文也不會有問題了喔";
+// $headers="MIME-Version: 1.0\n";
+// $headers.="Content-type: text/html; charset=utf-8\n";
+$headers="From: $from\nReply-To:$from\n";
+if(mail($to,$subject,$message,$headers)){
+    echo successful ;
+}
+else{
+    echo 0;
+}
 
-if (!isset($_POST["submit"]))
-  {
-  ?>
-  <form method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
-  From: <input type="text" name="from"><br>
-  Subject: <input type="text" name="subject"><br>
-  Message: <textarea rows="10" cols="40" name="message"></textarea><br>
-  <input type="submit" name="submit" value="Click To send mail">
-  </form>
-  <?php
-  }
-
-else
-
-  {
-
-  if (isset($_POST["from"]))
-    {
-    $from = $_POST["from"]; // sender
-    $subject = $_POST["subject"];
-    $message = $_POST["message"];
-
-    $message = wordwrap($message, 70);
-
-    mail("james0120160379@gmail.com",$subject,$message,"From: $from\n");
-    echo "Thank you for sending an email";
-    }
-  }
 ?>
