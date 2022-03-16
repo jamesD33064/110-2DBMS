@@ -22,7 +22,7 @@
                                 <div class="card-body p-5">
                                     <h2 class="text-uppercase text-center mb-5">Create an account</h2>
                     
-                                    <form method="post" action="PHP/register.php" onSubmit="test();">
+                                    <form method="post" action="PHP/register.php" onSubmit="return test();">
 
                                         <div class="form-outline mb-4">
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg" name="id"/>
@@ -50,8 +50,8 @@
                                         </div>
                         
                                         <div class="form-check d-flex  mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg"/>
-                                            <label class="form-check-label" for="form2Example3g">
+                                            <input class="form-check-input me-2" type="checkbox" id="form2Example3cg" checked/>
+                                            <!-- <label class="form-check-label" for="form2Example3g"> -->
                                             I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
                                             </label>
                                         </div>
