@@ -1,42 +1,41 @@
 <?php
-    session_start();
-    $username="";
-    $password="";
-    $dbname="1102DBMS";
-
-    $link = mysqli_connect("localhost" , $dbname , "123" , $dbname) 
-            or die("fault");
-        
-    echo "successful<br>";
-    
-    $id=$_POST["id"];
-    $password=$_POST["password"];
-
-    $sql = " SELECT * FROM `顧客`; ";
-
-    if($result = mysqli_query($link,$sql)){
-        while($row = mysqli_fetch_assoc($result)){
-
-            $hash = password_hash($row["密碼"], PASSWORD_DEFAULT);
-
-            if($row["身分證字號"]==$id && password_verify($password, $hash)){
-                echo "登入成功".$row["身分證字號"]."-".$row["密碼"]."<br>";
-                $_SESSION['id'] = $id;
-                // header("Location: index.php"); 
-                // header("refresh:32;url=index.html");
-                exit;
-            }
+// Include config file
+$conn=require_once "config.php";
+ 
+// Define variables and initialize with empty values
+$username=$_POST["username"];
+$password=$_POST["password"];
+//增加hash可以提高安全性
+$password_hash=password_hash($password,PASSWORD_DEFAULT);
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $sql = "SELECT * FROM customer WHERE person_id ='".$username."'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_assoc($result);
+    if(mysqli_num_rows($result)==1 && $password==$row["password"]){
+        session_start();
+        // Store data in session variables
+        $_SESSION["loggedin"] = true;
+        //這些是之後可以用到的變數
+        $_SESSION["id"] = $row["customer_id"];
+        $_SESSION["username"] = $row["person_id"]; 
+        header("location:welcome.php");
+    }else{
+            function_alert("帳號或密碼錯誤"); 
         }
-        echo "登入失敗";
-        mysqli_free_result($result);
+}
+    else{
+        function_alert("Something wrong"); 
     }
+
+    // Close connection
     mysqli_close($link);
 
-    
-    // $password_hash=password_hash($password,PASSWORD_DEFAULT);
-    
-
-
-
+function function_alert($message) { 
+    // Display the alert box  
+    echo "<script>alert('$message');
+     window.location.href='index.php';
+    </script>"; 
+    return false;
+} 
 ?>
-
