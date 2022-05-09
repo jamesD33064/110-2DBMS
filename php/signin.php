@@ -18,7 +18,7 @@
         while($row = mysqli_fetch_assoc($result)){
 
             $hash = password_hash($row["密碼"], PASSWORD_DEFAULT);
-                
+
             if($row["身分證字號"]==$id && password_verify($password, $hash)){
                 echo "登入成功".$row["身分證字號"]."-".$row["密碼"]."<br>";
                 $_SESSION['id'] = $id;

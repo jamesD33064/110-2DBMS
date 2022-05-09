@@ -9,7 +9,8 @@
     $username=$_POST["username"];
     $email=$_POST["email"];
     $password=$_POST["password"];
-
+    
+    
     $sql = " SELECT * FROM `顧客`; ";
 
     $check="SELECT * FROM 顧客 WHERE 身分證字號='".$id."'";
