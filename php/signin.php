@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //這些是之後可以用到的變數
         $_SESSION["id"] = $row["customer_id"];
         $_SESSION["username"] = $row["person_id"]; 
-        header("location:welcome.php");
+        header("location:../view/index.html");
     }else{
             function_alert("帳號或密碼錯誤"); 
         }

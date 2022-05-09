@@ -2,6 +2,7 @@
 session_start(); 
 $_SESSION = array(); 
 session_destroy(); 
-header('location:index.php'); 
+// $_SESSION["loggedin"] = FALSE;
+header('location:../view/index.html'); 
 
 ?>
