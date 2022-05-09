@@ -41,16 +41,3 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
-
-a=0;
-document.getElementById("hamburger").addEventListener('click', function(){
-  if(a==0){
-    document.getElementById("main-continer").style.display = "none";
-    a=1;
-  }
-  else{
-    document.getElementById("main-continer").style.display = "block";
-    a=0;
-  }
-  
-});
