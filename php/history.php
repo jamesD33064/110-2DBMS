@@ -46,7 +46,7 @@
                 $tmp = array(
                     "顧客代號" => $row_3['customer_id'],
                     "時間" => (string)$row['time'],
-                    "是否為確診者" => $row_3['person_id']
+                    "是否為確診者" => (bool)$row_3['is_epidemic']
                 );
             }
             

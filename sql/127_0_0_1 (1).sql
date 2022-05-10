@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1:3306
--- 產生時間： 2022 年 05 月 10 日 02:51
+-- 產生時間： 2022 年 05 月 10 日 03:59
 -- 伺服器版本： 10.5.12-MariaDB-cll-lve
 -- PHP 版本： 7.2.34
 
@@ -32,6 +32,7 @@ USE `u558221944_DBMS`;
 CREATE TABLE `customer` (
   `password` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `person_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_epidemic` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -39,11 +40,12 @@ CREATE TABLE `customer` (
 -- 傾印資料表的資料 `customer`
 --
 
-INSERT INTO `customer` (`password`, `person_id`, `customer_id`) VALUES
-('12345678', 'D111111111', 1),
-('12345678', 'D222222222', 2),
-('12345678', 'D333333333', 3),
-('12345678', 'D444444444', 4);
+INSERT INTO `customer` (`password`, `person_id`, `is_epidemic`, `customer_id`) VALUES
+('12345678', 'D111111111', 0, 1),
+('12345678', 'D222222222', 0, 2),
+('12345678', 'D333333333', 0, 3),
+('12345678', 'D444444444', 1, 4),
+('12345678', 'D0957174', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -104,11 +106,11 @@ CREATE TABLE `footprint_data` (
 INSERT INTO `footprint_data` (`place_id`, `time`, `customer_id`, `footprint_id`) VALUES
 (1, '2022-05-09 09:45:00', 1, 1),
 (3, '2022-05-09 12:23:06', 1, 2),
-(2, '2022-05-09 15:12:53', 1, 3),
+(2, '2022-05-09 15:12:53', 3, 3),
 (2, '2022-05-09 15:27:52', 1, 4),
 (2, '2022-05-09 15:27:59', 1, 5),
-(2, '2022-05-09 15:27:59', 1, 6),
-(2, '2022-05-09 15:28:00', 1, 7),
+(2, '2022-05-09 15:27:59', 2, 6),
+(2, '2022-05-09 15:28:00', 4, 7),
 (2, '2022-05-09 15:28:01', 1, 8),
 (2, '2022-05-09 15:28:01', 1, 9),
 (2, '2022-05-09 15:28:02', 1, 10);
@@ -134,7 +136,8 @@ CREATE TABLE `place` (
 INSERT INTO `place` (`name`, `account`, `password`, `is_epidemic`, `place_id`) VALUES
 ('逢甲大學', 'fcu', '12345678', 1, 1),
 ('阿姨咖哩', 'regali', '12345678', 0, 2),
-('逢甲胖老爹', 'chicken', '12345678', 0, 3);
+('逢甲胖老爹', 'chicken', '12345678', 0, 3),
+('smile', 'smile', '12345678', 0, 4);
 
 --
 -- 已傾印資料表的索引
@@ -181,7 +184,7 @@ ALTER TABLE `place`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `disease_data`
@@ -205,7 +208,7 @@ ALTER TABLE `footprint_data`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `place`
 --
 ALTER TABLE `place`
-  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 已傾印資料表的限制式
