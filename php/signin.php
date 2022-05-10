@@ -26,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //這些是之後可以用到的變數
         $_SESSION["id"] = $row_customer["customer_id"];
         $_SESSION["username"] = $row_customer["person_id"];
+        $_SESSION["CorP"] = "C"; 
         header("location:../view/index.html");
     }
     else if(mysqli_num_rows($result_place)==1 && $password==$row_place["password"]){
@@ -35,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //這些是之後可以用到的變數
         $_SESSION["id"] = $row_place["place_id"];
         $_SESSION["username"] = $row_place["account"]; 
+        $_SESSION["CorP"] = "P"; 
         header("location:../view/index.html");
     }
     else{
