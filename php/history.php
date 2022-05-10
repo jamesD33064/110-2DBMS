@@ -25,9 +25,9 @@
             // }
             // echo '</tr>';
             $tmp = array(
-              "place_name" => $row_2['name'],
-              "time" => (string)$row['time'],
-              "is_epidemic" => $row_2['is_epidemic']
+              "地點名稱" => $row_2['name'],
+              "時間" => (string)$row['time'],
+              "是否為疫區" => $row_2['is_epidemic']
             );
             array_push($footprint_json,$tmp);
         }

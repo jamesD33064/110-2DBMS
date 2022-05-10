@@ -100,7 +100,7 @@ label.highlight {
   color: #ffffff;
 }
 
-input, textarea {
+.text_input, textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -113,6 +113,12 @@ input, textarea {
   border-radius: 0;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
+
+.CorP{
+  display: inline-block;
+  color: #a0b3b0;
+}
+
 input:focus, textarea:focus {
   outline: 0;
   border-color: #1ab188;
