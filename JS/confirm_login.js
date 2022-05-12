@@ -18,6 +18,7 @@ get("../php/welcome.php")
         document.getElementById("navbar_username").innerText = res;
         document.getElementById("navbar_signin").style.display="none";
         document.getElementById("navbar_logout").style.display="block";
+        
     }
     else{//如果為非登入
         document.getElementById("navbar_username").innerText = "";
