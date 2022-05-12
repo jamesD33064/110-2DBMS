@@ -12,20 +12,22 @@ function get(url) {
     });
 }
 
-var id=2;
-
-get("../php/qrcode.php")
-.then((res) => {
-    id=Number(res);
-})
-
-createqrcode();
-
-function createqrcode() {
+function createqrcode(id) {
     var input_text = "https://mspredator.com/110-2DBMS/110-2DBMS/php/qrcode.php?place_id="+id;
-    var width = 57;
+    var width = 150;
     var rectangle = width + "x" + width;
     var url = "https://chart.googleapis.com/chart?chs=" + rectangle + "&cht=qr&chl=" + input_text + "&choe=UTF-8&chld=M|2";
-    var qr_code = "<img alt='Your QRcode' src='" + url + "' />";
-    $('#qrcode').html(qr_code);
+    // var qr_code = "<img alt='Your QRcode' src='" + url + "' />";
+    return url;
 }
+
+get("../php/getid.php")
+.then((res) => {
+    // alert(createqrcode(res));
+    // var obj = document.getElementById("qrcode");
+    // obj.setAttribute("src","http://ithelp.ithome.com.tw/upload/images/20141015/20141015095459543dd3f36c448_resize_600.jpg");
+    document.getElementById("qrcode_img").src = createqrcode(res);
+})
+
+// createqrcode();
+
