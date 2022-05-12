@@ -59,3 +59,4 @@ function function_alert($message) {
     return false;
 } 
 ?>
+<!-- http://localhost:8000/110-2DBMS/php/signin.php?username=D111111111&password=12345678 -->
