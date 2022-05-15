@@ -23,10 +23,12 @@ function createqrcode(id) {
 
 get("../php/getid.php")
 .then((res) => {
-    // alert(createqrcode(res));
-    // var obj = document.getElementById("qrcode");
-    // obj.setAttribute("src","http://ithelp.ithome.com.tw/upload/images/20141015/20141015095459543dd3f36c448_resize_600.jpg");
-    document.getElementById("qrcode_img").src = createqrcode(res);
+    data = JSON.parse(res);
+    // alert(createqrcode(data[1]));
+    if(data[0]=="P"){
+        document.getElementById("qrcode_img").src = createqrcode(data[1]);
+        // alert(createqrcode(data[1]));
+    }
 })
 
 // createqrcode();

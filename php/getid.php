@@ -1,6 +1,7 @@
 <?php
     session_start();
-    echo $_SESSION["id"];
+    $a=array($_SESSION["CorP"],$_SESSION["id"]);
+    echo json_encode($a);
     exit;
     $place_id=$_SESSION["id"];
     $urlToEncode="https://mspredator.com/110-2DBMS/110-2DBMS/php/qrcode.php?place_id=".$place_id; 
