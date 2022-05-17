@@ -11,7 +11,6 @@ function get(url) {
             req.send();
         });
 }
-
 get("../php/welcome.php")
 .then((res) => {
     if(res != ""){//如果為登入狀態
@@ -19,6 +18,16 @@ get("../php/welcome.php")
         document.getElementById("navbar_signin").style.display="none";
         document.getElementById("navbar_logout").style.display="block";
         
+        get("../php/getid.php")
+        .then((res) => {
+            data = JSON.parse(res);
+            if(data[0]=="C"){
+                document.getElementById('qrcode').style.display="none"
+            }
+            else if(data[0]=="P"){
+                document.getElementById('qrcode').style.display="block"
+            }
+        })
     }
     else{//如果為非登入
         document.getElementById("navbar_username").innerText = "";
@@ -26,5 +35,7 @@ get("../php/welcome.php")
         document.getElementById("navbar_logout").style.display="none";
         
     }
-    // alert(res);
+
+
+
 });

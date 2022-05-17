@@ -15,6 +15,7 @@ function get(url) {
 get("../php/history.php")
 .then((res) => {
     let jArray=JSON.parse(res);
+    // alert(res);
     document.getElementById("footprint").appendChild(generateTable(jArray));
 
 })

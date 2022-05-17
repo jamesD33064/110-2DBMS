@@ -3,9 +3,12 @@
     $conn=require_once "config.php";
     if($_SESSION["CorP"]=="C"){
         $sql = "SELECT *  FROM `footprint_data` WHERE `customer_id` = ".$id=$_SESSION["id"].";";
+        // echo $sql;
     }
     else{
         $sql = "SELECT *  FROM `footprint_data` WHERE `place_id` = ".$id=$_SESSION["id"].";";
+
+        // echo $sql;
     }
     
     // echo '<table border="1" width="600" align="center">';
