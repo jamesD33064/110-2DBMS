@@ -12,10 +12,10 @@ function get(url) {
         });
 }
 
-get("../php/history.php")
+get("../php/overview.php")
 .then((res) => {
     let jArray=JSON.parse(res);
-    document.getElementById("footprint").appendChild(generateTable(jArray));
+    document.getElementById("overview").appendChild(generateTable(jArray));
 
 })
 function generateTable (jArray) {

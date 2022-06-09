@@ -24,7 +24,6 @@ function createqrcode(id) {
 get("../php/getid.php")
 .then((res) => {
     data = JSON.parse(res);
-    // alert(createqrcode(data[1]));
     if(data[0]=="P"){
         document.getElementById("qrcode_img").src = createqrcode(data[1]);
         // alert(createqrcode(data[1]));

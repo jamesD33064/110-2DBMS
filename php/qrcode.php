@@ -10,6 +10,5 @@
     else{
         exit;
     }
-    
     mysqli_close($conn);
 ?>
