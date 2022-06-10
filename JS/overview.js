@@ -16,7 +16,6 @@ get("../php/overview.php")
 .then((res) => {
     let jArray=JSON.parse(res);
     document.getElementById("overview").appendChild(generateTable(jArray));
-
 })
 function generateTable (jArray) {
     let tbody = document.createElement('tbody');
@@ -30,7 +29,7 @@ function generateTable (jArray) {
         Object.keys(row).forEach(tdName => {
             let td = document.createElement('td');
             td.textContent= row[tdName];
-
+            td.style.cssText="padding: 20px;";
             tr.appendChild(td);
         });
         tbody.appendChild(tr);
@@ -54,3 +53,9 @@ function generateTable (jArray) {
     return table;
 }
 
+
+get("../php/overview_taiwan.php")
+.then((res) => {
+    let jArray=JSON.parse(res);
+    document.getElementById("pernumber").appendChild(generateTable(jArray));
+})
