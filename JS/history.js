@@ -50,6 +50,19 @@ function post_quicktime(){
         footprint.appendChild(generateTable(jArray));
     })
 }
+function post_is_epidemic(){
+    if(document.getElementById("is_epidemic").checked){
+        get("../php/history2.php")
+        .then((res) => {
+            let jArray=JSON.parse(res);
+            var footprint = document.getElementById("footprint");
+            while(footprint.lastChild){
+                footprint.removeChild(footprint.lastChild);
+            }
+            footprint.appendChild(generateTable(jArray));
+        })
+    }
+}
 
 function generateTable (jArray) {
     let tbody = document.createElement('tbody');
