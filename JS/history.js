@@ -16,8 +16,35 @@ get("../php/history.php")
 .then((res) => {
     let jArray=JSON.parse(res);
     document.getElementById("footprint").appendChild(generateTable(jArray));
-
 })
+function post_time(){
+    var a = document.getElementById("from_date").value;
+    var b = document.getElementById("to_date").value;
+    get("../php/history.php?from="+a+"&to="+b)
+    .then((res) => {
+        let jArray=JSON.parse(res);
+        var footprint = document.getElementById("footprint");
+        while(footprint.lastChild){
+            footprint.removeChild(footprint.lastChild);
+        }
+        footprint.appendChild(generateTable(jArray));
+    })
+}
+function post_quicktime(){
+    dateObject = new Date();
+    var a = dateObject.toISOString().split(":",3)[0];
+    var b = dateObject.toISOString();
+    get("../php/history.php?from="+a+"&to="+b)
+    .then((res) => {
+        let jArray=JSON.parse(res);
+        var footprint = document.getElementById("footprint");
+        while(footprint.lastChild){
+            footprint.removeChild(footprint.lastChild);
+        }
+        footprint.appendChild(generateTable(jArray));
+    })
+}
+
 function generateTable (jArray) {
     let tbody = document.createElement('tbody');
     let thead = document.createElement('thead');
@@ -52,5 +79,9 @@ function generateTable (jArray) {
     table.appendChild(thead);
 
     return table;
+}
+
+function search(){
+
 }
 
