@@ -11,7 +11,8 @@ foreach($content as $row)
 {
     $tmp = array(
         "通報日" => $row['a01'],
-        "新增確診" => $row['a06']
+        "新增確診" => $row['a06'],
+        "七日確診人數平均" => $row['a07']
     );
     array_push($json,$tmp);
 }
