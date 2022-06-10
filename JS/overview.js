@@ -54,8 +54,22 @@ function generateTable (jArray) {
 }
 
 
-get("../php/overview_taiwan.php")
+get("../php/overview_taiwan.php?type=week")
 .then((res) => {
     let jArray=JSON.parse(res);
     document.getElementById("pernumber").appendChild(generateTable(jArray));
 })
+
+function weekormonth(){
+    var type = document.querySelector('input[name="type"]:checked').value;
+    // alert(type);
+    get("../php/overview_taiwan.php?type="+type)
+    .then((res) => {
+        let jArray=JSON.parse(res);
+        var pernumber = document.getElementById("pernumber");
+        while(pernumber.lastChild){
+            pernumber.removeChild(pernumber.lastChild);
+        }
+        pernumber.appendChild(generateTable(jArray));
+    })
+}

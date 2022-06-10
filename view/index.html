@@ -50,12 +50,27 @@
           <div class="col-4">
               <div class="row">
                   <div class="mx-auto" style="width: auto;">
-                      <p class="text-center" id="overview"></p>
+                      <p class="text-center" id="overview" style="width: auto; overflow-y: auto; height: 500px;"></p>
                   </div>
               </div>
           </div>
           <div class="col-4">
               <div class="row">
+                <h5 class="text-center">WEEK or MONTH</h5>
+                
+                  <div class="text-center">
+                    <h6>State<br></h6>
+                    <label>WEEK</label>
+                    <input type="radio" name="type" value="week" checked>
+                    <label>MONTH</label>
+                    <input type="radio" name="type" value="month">
+                  </div>
+                  <div class="text-center">
+                    <button class="submit" onclick="weekormonth()">提交</button>
+                  </div>
+
+                  <div class="line_line"></div>
+
                   <div class="mx-auto" id="pernumber_mxauto" style="width: auto; overflow-y: auto; height: 260px;" >
                       <p class="text-center" id="pernumber"></p>
                   </div>
