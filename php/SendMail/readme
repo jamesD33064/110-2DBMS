@@ -1,0 +1,31 @@
+smtp($email , $IGname , "訂單詳情" , make_mail($ordername , $product_num_json , $payway, $sendway , $address , $sell_date));
+
+
+
+
+function make_mail($ordername , $product_num_json , $payway , $sendway , $address , $sell_date){
+
+include ("coon.php");
+
+ob_start();
+include './SendMail/mail_template.html';
+$mail_body = ob_get_clean();
+$mail_body = str_replace("ordername",$ordername , $mail_body);
+$mail_body = str_replace("sell_date",$sell_date , $mail_body);
+
+$str='';
+
+switch($payway){
+        case "pay_1":
+                $mail_body = str_replace("payway","匯款" , $mail_body);
+                break;
+        case "pay_2":
+                $mail_body = str_replace("payway","虛擬貨幣支付", $mail_body);
+                break;
+}
+
+mysqli_close($link);
+return $mail_body;
+
+}
+
