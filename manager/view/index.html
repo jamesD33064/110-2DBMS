@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+  <div class="main-continer" id="main-continer">
+    <!-- <p class="text-center">這裡會是足跡紀錄</p> -->
+    <div class="row">
+
+        <div class="col-sm-12 col-lg-2">
+        </div>
+
+        <div class="col-sm-12 col-lg-4">
+            <div class="row">
+                <div class="mx-auto" style="width: auto;">
+
+                  <style> 
+                      .submit{
+                        background-color: #0468aa;
+                        border: none;
+                        color: white;
+                        padding-left: 1vw;
+                        padding-right: 1vw;
+                        text-decoration: none;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                      }
+                  </style>
+                    
+                  <div id="change_customer">
+                      <h5 class="text-center" id="search">更改使用者確診狀況</h5>
+                        <form method="post" action="../db/update_customer.php">
+                            <div id="Customer_id">
+                                <h6>Customer_id<br></h6>
+                                <input type="text" id="from_date" name="customer_id">
+                            </div>
+                            <div id="to_time">
+                              <h6>State<br></h6>
+                              <label>確診</label>
+                              <input type="radio" id="from_date" name="change_customer" value="1" checked>
+                              <label>痊癒</label>
+                              <input type="radio" id="from_date" name="change_customer" value="0">
+                            </div>
+                            <div class="text-center">
+                              <button class="submit" onclick="change_customer()">提交</button>
+                            </div>
+                        </form>
+
+                      <div class="line_line"></div>
+                  </div>
+
+                  <div id="change_place">
+                    <h5 class="text-center" id="search">更改商家疫區狀況</h5>
+                    <form method="post" action="../db/update_place.php">
+                        <div id="Place_id">
+                            <h6>Place_id<br></h6>
+                            <input type="text" id="from_date" name="place_id">
+                        </div>
+                        <div id="to_time">
+                          <h6>State<br></h6>
+                          <label>疫區</label>
+                          <input type="radio" id="from_date" name="change_place" value="1" checked>
+                          <label>非疫區</label>
+                          <input type="radio" id="from_date" name="change_place" value="0">
+                        </div>
+                        <div class="text-center">
+                          <button class="submit" onclick="change_place()">提交</button>
+                        </div>
+                    </form>
+                    <div class="line_line"></div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4">
+            <div class="row">
+                <div class="mx-auto" style="width: auto;">
+
+                    <div id="search_customer">
+                        <h5 class="text-center" id="search">查詢使用者確診狀況</h5>
+                            <div id="from_time">
+                                <h6>Customer_id<br></h6>
+                                <input type="text" id="from_date" name="search_customer">
+                            </div>
+                            <div class="text-center">
+                            <button class="submit" onclick="search_customer()">提交</button>
+                            </div>
+                        <div class="line_line"></div>
+                    </div>
+                    <div id="search_place">
+                        <h5 class="text-center" id="search">查詢商家疫區狀況</h5>
+                            <div id="from_time">
+                                <h6>Customer_id<br></h6>
+                                <input type="text" id="from_date" name="search_place">
+                            </div>
+                            <div class="text-center">
+                            <button class="submit" onclick="search_place()">提交</button>
+                            </div>
+                        <div class="line_line"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-2">
+        </div>
+        
+        <div class="col-sm-12 col-lg-12">
+            <h5 class="text-center" id="end">查詢結果</h5>
+
+        </div>
+    </div>
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

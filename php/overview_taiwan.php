@@ -7,6 +7,11 @@ while (!feof($handle)) {
 fclose($handle);
 $content = json_decode($content,true);
 $json=array();
+
+//insert to db
+$conn=require_once "config.php";
+
+    
 foreach($content as $row)
 {
     $tmp = array(
@@ -14,6 +19,8 @@ foreach($content as $row)
         "新增確診" => $row['a06'],
         "七日確診人數平均" => $row['a07']
     );
+    $sql = "INSERT INTO taiwan_covid19(time,diagnosenumber) VALUES ('".$row['a01']."',".$row['a06'].")";
+    mysqli_query($conn,$sql);
     array_push($json,$tmp);
 }
 echo json_encode($json);
