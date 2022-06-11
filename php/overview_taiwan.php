@@ -22,7 +22,7 @@ foreach($content as $row)
     }
 }
 if($_REQUEST['type']=="week"){
-    $sql = "SELECT time,diagnosenumber,avg(diagnosenumber) as aver FROM `taiwan_covid19` group by WEEK(time),DAY(time) ORDER BY time DESC";
+    $sql = "SELECT time,diagnosenumber,avg(diagnosenumber) OVER (ORDER BY `time` ROWS BETWEEN 6 PRECEDING AND 0 FOLLOWING) AS aver FROM `taiwan_covid19` order by `time` DESC ;";
     if($result = mysqli_query($conn,$sql)){
         while($row = mysqli_fetch_assoc($result)){
             $tmp = array(
@@ -35,7 +35,7 @@ if($_REQUEST['type']=="week"){
     }
 }
 else{
-    $sql = "SELECT time,diagnosenumber,avg(diagnosenumber) as aver FROM `taiwan_covid19` group by MONTH(time),DAY(time) ORDER BY time DESC";
+    $sql = "SELECT time,diagnosenumber,avg(diagnosenumber) OVER (ORDER BY `time` ROWS BETWEEN 29 PRECEDING AND 0 FOLLOWING) AS aver FROM `taiwan_covid19` order by `time` DESC;";
     if($result = mysqli_query($conn,$sql)){
         while($row = mysqli_fetch_assoc($result)){
             $tmp = array(
