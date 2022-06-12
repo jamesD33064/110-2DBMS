@@ -13,7 +13,7 @@ body {
 
 #pernumber_mxauto::-webkit-scrollbar {
   width: 6px;
-  background-color: rgb(131, 131, 131);
+  background-color: #838383;
   }
   #pernumber_mxauto::-webkit-scrollbar-thumb {
   background-color: #ffffff;

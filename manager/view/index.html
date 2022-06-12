@@ -48,7 +48,7 @@
                               <input type="radio" id="from_date" name="change_customer" value="0">
                             </div>
                             <div class="text-center">
-                              <button class="submit" onclick="change_customer()">提交</button>
+                              <button class="submit">提交</button>
                             </div>
                         </form>
 
@@ -70,7 +70,7 @@
                           <input type="radio" id="from_date" name="change_place" value="0">
                         </div>
                         <div class="text-center">
-                          <button class="submit" onclick="change_place()">提交</button>
+                          <button class="submit">提交</button>
                         </div>
                     </form>
                     <div class="line_line"></div>
@@ -84,20 +84,18 @@
             <div class="row">
                 <div class="mx-auto" style="width: auto;">
 
-                    <div id="search_customer">
+                    <div>
                         <h5 class="text-center" id="search">查詢使用者確診狀況</h5>
-                        <form method="post" action="../db/search_place.php">
                             <div id="from_time">
                                 <h6>Customer_id<br></h6>
-                                <input type="text" id="from_date" name="search_customer">
+                                <input type="text" id="search_customer" name="search_customer">
                             </div>
                             <div class="text-center">
                             <button class="submit" onclick="search_customer()">提交</button>
                             </div>
-                        </form>
                         <div class="line_line"></div>
                     </div>
-                    <div id="search_place">
+                    <div>
                         <h5 class="text-center" id="search">查詢商家疫區狀況</h5>
                             <div id="from_time">
                                 <h6>Place_id<br></h6>
@@ -117,8 +115,11 @@
         </div>
         
         <div class="col-sm-12 col-lg-12">
-            <h5 class="text-center" id="end">查詢結果</h5>
-
+            <h5 class="text-center">查詢結果</h5>
+                <div class="card h-100" style="background-color: #c1bdba ;">
+                    <div class="card-body text-center mx-auto" id="end">
+                    </div>
+                </div>
         </div>
     </div>
     

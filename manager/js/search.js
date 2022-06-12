@@ -1,9 +1,26 @@
 function search_place(){
+    var end = document.getElementById("end");
     var id = document.getElementById("search_place").value;
     get("../db/search_place.php?search_place="+id)
     .then((res) => {
         let jArray=JSON.parse(res);
-        var end = document.getElementById("end");
+        // alert(id);
+        while(end.lastChild){
+            end.removeChild(end.lastChild);
+        }
+        end.appendChild(generateTable(jArray));
+    })
+}
+function search_customer(){
+    var end = document.getElementById("end");
+    var id = document.getElementById("search_customer").value;
+    get("../db/search_customer.php?search_customer="+id)
+    .then((res) => {
+        let jArray=JSON.parse(res);
+        // alert(id);
+        while(end.lastChild){
+            end.removeChild(end.lastChild);
+        }
         end.appendChild(generateTable(jArray));
     })
 }
