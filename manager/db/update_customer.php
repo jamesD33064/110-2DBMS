@@ -5,7 +5,8 @@ $customer_id=$_POST["customer_id"];
 $change_customer=$_POST["change_customer"];
 
 $sql="UPDATE customer SET is_epidemic = '".$change_customer."' WHERE '".$customer_id."'= customer_id;";
-$footprint = "SELECT DISTINCT(place_id) FROM footprint_data WHERE customer_id = '".$customer_id."' AND time > DATE_ADD('".$time."', INTERVAL -3 DAY);";
+$footprint = "UPDATE place SET is_epidemic = 1 WHERE place_id in (SELECT DISTINCT(place_id) FROM footprint_data WHERE customer_id = '".$customer_id."' AND time > DATE_ADD('".$time."', INTERVAL -3 DAY))";
+// SELECT DISTINCT(place_id) FROM footprint_data WHERE customer_id = '".$customer_id."' AND time > DATE_ADD('".$time."', INTERVAL -3 DAY)
 if(mysqli_query($conn,$sql)){
     
 }
