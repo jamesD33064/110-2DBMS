@@ -31,10 +31,21 @@ function post_time(){
     })
 }
 function post_quicktime(){
+    howlong = document.querySelector('input[name="howlong"]:checked').value;
+
     dateObject = new Date();
-    var a = dateObject.toISOString().split(":",3)[0];
-    var b = dateObject.toISOString();
-    get("../php/history.php?from="+a+"&to="+b)
+
+    dateObject=dateObject.setDate(dateObject.getDate()+1);
+    dateObject = new Date(dateObject);
+
+
+    var a = dateObject.toISOString().split(":",3)[0]+":"+dateObject.toISOString().split(":",3)[1];
+    
+    d = new Date(dateObject.getFullYear(), (dateObject.getMonth()), (dateObject.getDate()-Number(howlong)));
+    var b=d.toISOString().split(":",3)[0]+":"+dateObject.toISOString().split(":",3)[1];
+    
+    // alert(b+"\n"+a);
+    get("../php/history.php?from="+b+"&to="+a)
     .then((res) => {
         let jArray=JSON.parse(res);
         var footprint = document.getElementById("footprint");
@@ -43,6 +54,19 @@ function post_quicktime(){
         }
         footprint.appendChild(generateTable(jArray));
     })
+}
+function post_is_epidemic(){
+    if(document.getElementById("is_epidemic").checked){
+        get("../php/history2.php")
+        .then((res) => {
+            let jArray=JSON.parse(res);
+            var footprint = document.getElementById("footprint");
+            while(footprint.lastChild){
+                footprint.removeChild(footprint.lastChild);
+            }
+            footprint.appendChild(generateTable(jArray));
+        })
+    }
 }
 
 function generateTable (jArray) {

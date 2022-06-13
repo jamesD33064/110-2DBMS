@@ -8,7 +8,7 @@
     // exit;
     if($_SESSION["CorP"]=="C"){
         if($_REQUEST['from']==''){
-            $sql = "SELECT name as 地點名稱,time as 時間,is_epidemic as 是否為疫區 FROM footprint_data f,place p WHERE f.place_id=p.place_id AND f.customer_id=".$_SESSION["id"]." ORDER BY time";
+            $sql = "SELECT name as 地點名稱,time as 時間,is_epidemic as 是否為疫區 FROM footprint_data f,place p WHERE f.place_id=p.place_id AND f.customer_id=".$_SESSION["id"]." AND is_epidemic=1"." ORDER BY time";
         }
         else{
             // str_replace( "T" , " " , $from , 1 );
@@ -18,7 +18,7 @@
     }
     else{
         if($_REQUEST['from']==''){
-            $sql = "SELECT c.customer_id as 顧客代號,time as 時間,is_epidemic as 是否為確診者 FROM footprint_data f,customer c WHERE f.customer_id=c.customer_id AND f.place_id=".$_SESSION["id"]." ORDER BY time";
+            $sql = "SELECT c.customer_id as 顧客代號,time as 時間,is_epidemic as 是否為確診者 FROM footprint_data f,customer c WHERE f.customer_id=c.customer_id AND f.place_id=".$_SESSION["id"]." AND is_epidemic=1"." ORDER BY time";
         }
         else{
             // str_replace( "T" , " " , $from , 1 );

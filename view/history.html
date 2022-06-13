@@ -25,7 +25,6 @@
             <div class="menu-items">
               <li><a href="./index.html">Home</a></li>
               <li><a href="./history.html">History</a></li>
-              <li><a href="#">11111</a></li>
               <li id="qrcode"><a href="./QRcode.html">QRcode</a></li>
               <li id="navbar_signin"><a href="./signin.html">Signup/Login</a></li>
               <li id="navbar_logout"><a href="../php/logout.php">Logout</a></li>
@@ -74,7 +73,7 @@
 
                       <div class="line_line"></div>
 
-                      <h5 class="text-center" id="search">快速時間查詢</h5>
+                      <h5 class="text-center" id="quick_search">快速時間查詢</h5>
                       <span>
                         <input type="radio" name="howlong" value="10" id="quick_10" checked>
                         <label>10天內</label>
@@ -98,8 +97,11 @@
                       <div class="line_line"></div>
 
                       <div class="text-center">
-                        <label><h5 class="text-center" id="search">是否為確診/疫區</h5></label>
-                        <input type="checkbox" name="howlong" value="10">
+                        <label><h5 class="text-center">是否為確診/疫區</h5></label>
+                        <input type="checkbox" id="is_epidemic">
+                      </div>
+                      <div class="text-center">
+                          <button class="submit" onclick="post_is_epidemic()">提交</button>
                       </div>
 
                       <div class="line_line"></div>
