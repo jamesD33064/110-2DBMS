@@ -4,6 +4,7 @@ $conn=require_once("config.php");
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $username=$_POST["username"];
     $password=$_POST["password"];
+    $email=$_POST["email"];
     $CorP=$_POST["CorP"];
     if (strpos($username, "'") !== false) {
         echo "INVALID";
@@ -18,8 +19,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($CorP == "customer"){//如果是顧客
         $check="SELECT * FROM customer WHERE person_id='".$username."'";
         if(mysqli_num_rows(mysqli_query($conn,$check))==0){
-            $sql="INSERT INTO customer (customer_id,person_id, password)
-                VALUES(NULL,'".$username."','".$password."')";
+            $sql="INSERT INTO customer (customer_id,person_id, password , email)
+                VALUES(NULL,'".$username."','".$password."','".$email."')";
             
             if(mysqli_query($conn, $sql)){
                 echo "註冊成功!3秒後將自動跳轉頁面<br>";
@@ -43,8 +44,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
         $check="SELECT * FROM place WHERE account='".$username."'";
         if(mysqli_num_rows(mysqli_query($conn,$check))==0){
-            $sql="INSERT INTO place (name , account , password , is_epidemic , place_id)
-                VALUES('".$username."','".$username."','".$password."', 0 , NULL)";
+            $sql="INSERT INTO place (name , account , password , is_epidemic , place_id , email)
+                VALUES('".$username."','".$username."','".$password."', 0 , NULL,'".$email."')";
             
             if(mysqli_query($conn, $sql)){
                 echo "註冊成功!3秒後將自動跳轉頁面<br>";

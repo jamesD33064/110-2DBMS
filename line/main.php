@@ -46,7 +46,7 @@ foreach ($obj['events'] as & $event){
                             $db['user'][$userId] = ['userId' => $userId, 'timestamp' => $event['timestamp'], 'email' => $email, 'password' => $password , 'customer_id' => $row["customer_id"]];
                             file_put_contents($dbFilePath, json_encode($db));
                             $unsign = 0;
-                            $message = '登入成功! 用戶: ' . $row['person_id'] .'\n可以使用指令: 登出 查詢足跡 疫情總覽';
+                            $message = '登入成功! 用戶: ' . $row['person_id'] ."\n".'可以使用指令: 登出 查詢足跡 疫情總覽';
                             
                         }
                     }
