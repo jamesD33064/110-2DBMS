@@ -1,0 +1,25 @@
+Array
+(
+    [user] => Array
+        (
+            [Uba3206a1f79ecccad1d2fe1d55587c0c] => Array
+                (
+                    [userId] => Uba3206a1f79ecccad1d2fe1d55587c0c
+                    [timestamp] => 1654535948556
+                    [email] => D111111111
+                    [password] => 12345678
+                    [customer_id] => 1
+                )
+
+            [Ub12acdcb807d695346c4a2e4c59bc7a3] => Array
+                (
+                    [userId] => Ub12acdcb807d695346c4a2e4c59bc7a3
+                    [timestamp] => 1654536798854
+                    [email] => D111111111
+                    [password] => 12345678
+                    [customer_id] => 1
+                )
+
+        )
+
+)

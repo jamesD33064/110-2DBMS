@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>QRcode</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+    <nav>
+        <div class="navbar">
+          <div class="container nav-container">
+            <input class="checkbox" type="checkbox" name=""  id="hamburger" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>  
+            <div class="logo">
+              <span style="display: inline-block;" id="navbar_username">username</span>
+              <h1 style="display: inline-block;">QRcode</h1>
+            </div>
+            <div class="menu-items">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./history.html">History</a></li>
+              <li id="qrcode"><a href="./QRcode.html">QRcode</a></li>
+              <li id="navbar_signin"><a href="./signin.html">Signup/Login</a></li>
+              <li id="navbar_logout"><a href="../php/logout.php">Logout</a></li>
+            </div>
+          </div>
+        </div>
+    </nav>
+  
+  <div class="main-continer" id="main-continer">
+    <!-- <p class="text-center">這裡會是商家QRcode</p> -->
+    <div class="row">
+        <div class="mx-auto" style="width: auto;">
+            <img src="" id="qrcode_img" width="300vw">
+        </div>
+    </div>
+    
+  </div>
+
+
+
+  <script  src="../js/main-continer_disappear.js"></script>
+  <script  src="../js/confirm_login.js"></script>
+  <script  src="../js/qrcode.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

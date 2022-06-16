@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+    <nav>
+        <div class="navbar">
+          <div class="container nav-container">
+            <input class="checkbox" type="checkbox" name=""  id="hamburger" />
+            <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+            </div>  
+            <div class="logo">
+              <span style="display: inline-block;" id="navbar_username">username</span>
+              <h1 style="display: inline-block;">History</h1>
+            </div>
+            <div class="menu-items">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./history.html">History</a></li>
+              <li id="qrcode"><a href="./QRcode.html">QRcode</a></li>
+              <li id="navbar_signin"><a href="./signin.html">Signup/Login</a></li>
+              <li id="navbar_logout"><a href="../php/logout.php">Logout</a></li>
+            </div>
+          </div>
+        </div>
+    </nav>
+  
+  <div class="main-continer" id="main-continer">
+    <!-- <p class="text-center">這裡會是足跡紀錄</p> -->
+    <div class="row">
+
+        <div class="col-sm-12 col-lg-2">
+        </div>
+
+        <div class="col-sm-12 col-lg-4">
+            <div class="row">
+                <div class="mx-auto" style="width: auto;">
+
+                  <style> 
+                      .submit{
+                        background-color: #0468aa;
+                        border: none;
+                        color: white;
+                        padding-left: 1vw;
+                        padding-right: 1vw;
+                        text-decoration: none;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                      }
+                  </style>
+                    
+                  <div id="time_search">
+                      <h5 class="text-center" id="search">依時間查詢</h5>
+                          <div id="from_time">
+                              <h6>From<br></h6>
+                              <input type="datetime-local" id="from_date" name="from">
+                          </div>
+                          <div id="to_time">
+                            <h6>To<br></h6>
+                            <input type="datetime-local" id="to_date" name="to">
+                          </div>
+                          <div class="text-center">
+                            <button class="submit" onclick="post_time()">提交</button>
+                          </div>
+
+                      <div class="line_line"></div>
+
+                      <h5 class="text-center" id="quick_search">快速時間查詢</h5>
+                      <span>
+                        <input type="radio" name="howlong" value="10" id="quick_10" checked>
+                        <label>10天內</label>
+                      </span>
+                      <span>
+                        <input type="radio" name="howlong" value="7" id="quick_7">
+                        <label>7天內</label>
+                      </span>
+                      <span>
+                        <input type="radio" name="howlong" value="4" id="quick_4">
+                        <label>4天內</label>
+                      </span>
+                      <span>
+                        <input type="radio" name="howlong" value="1" id="quick_1">
+                        <label>1天內</label>
+                      </span>
+                      <div class="text-center">
+                          <button class="submit" onclick="post_quicktime()">提交</button>
+                      </div>
+
+                      <div class="line_line"></div>
+
+                      <div class="text-center">
+                        <label><h5 class="text-center">是否為確診/疫區</h5></label>
+                        <input type="checkbox" id="is_epidemic">
+                      </div>
+                      <div class="text-center">
+                          <button class="submit" onclick="post_is_epidemic()">提交</button>
+                      </div>
+
+                      <div class="line_line"></div>
+                  </div>
+
+                    <!-- <div id="time_search">
+                      <h5 class="text-center" id="search">依時間查詢</h5>
+                        <div id="from_time">
+                            <h6>From<br></h6>
+                            <input id="date" type="date">
+                            <input id="date" type="time">
+                        </div>
+                        <div id="to_time">
+                          <h6>To<br></h6>
+                          <input id="date" type="date">
+                          <input id="date" type="time">
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-4">
+            <div class="row">
+              <div class="mx-auto" style="width: auto;">
+                  <p class="text-center" id="footprint"></p>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-2">
+        </div>
+    </div>
+    
+  </div>
+
+
+
+  <script  src="../js/main-continer_disappear.js"></script>
+  <script  src="../js/confirm_login.js"></script>
+  <script  src="../js/history.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
