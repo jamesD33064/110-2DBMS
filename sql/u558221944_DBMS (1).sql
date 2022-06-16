@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2022-06-12 14:17:21
--- 伺服器版本： 10.4.22-MariaDB
--- PHP 版本： 8.1.2
+-- 主機： 127.0.0.1:3306
+-- 產生時間： 2022 年 06 月 16 日 10:37
+-- 伺服器版本： 10.5.12-MariaDB-cll-lve
+-- PHP 版本： 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,27 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫: `u558221944_dbms`
+-- 資料庫: `fcu`
 --
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `aa`
---
-
-CREATE TABLE `aa` (
-  `a` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 傾印資料表的資料 `aa`
---
-
-INSERT INTO `aa` (`a`) VALUES
-(1),
-(1),
-(1);
 
 -- --------------------------------------------------------
 
@@ -50,19 +31,19 @@ CREATE TABLE `customer` (
   `password` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `person_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_epidemic` int(11) NOT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) NOT NULL,
+  `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `customer`
 --
 
-INSERT INTO `customer` (`password`, `person_id`, `is_epidemic`, `customer_id`) VALUES
-('12345678', 'D111111111', 1, 1),
-('12345678', 'D222222222', 0, 2),
-('12345678', 'D333333333', 0, 3),
-('12345678', 'D444444444', 1, 4),
-('12345678', 'D0957174', 0, 5);
+INSERT INTO `customer` (`password`, `person_id`, `is_epidemic`, `customer_id`, `email`) VALUES
+('12345678', 'D111111111', 1, 1, 'rrreeere666@gmail.com'),
+('12345678', 'D222222222', 0, 2, 'rrreeere666@gmail.com'),
+('12345678', 'D333333333', 0, 3, 'rrreeere666@gmail.com'),
+('12345678', 'D444444444', 1, 4, 'rrreeere666@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -81,34 +62,6 @@ CREATE TABLE `disease_data` (
 
 INSERT INTO `disease_data` (`disease_id`, `disease_name`) VALUES
 (1, 'covid-19');
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `dl_footprint`
---
-
-CREATE TABLE `dl_footprint` (
-  `longitude` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `latitude` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` datetime NOT NULL,
-  `type` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 傾印資料表的資料 `dl_footprint`
---
-
-INSERT INTO `dl_footprint` (`longitude`, `latitude`, `user`, `name`, `date`, `type`) VALUES
-('120.64795', '24.182048', 'A', '阿姨咖哩', '2022-05-25 15:20:22', 1),
-('120.65396167337893', '24.183607279838974', 'B', 'CENTERPARK', '2022-05-25 22:36:48', 1),
-('120.6387475132942', '24.16703150385822', 'B', 'Maple Garden', '2022-05-25 22:37:25', 1),
-('120.67976485937832', '24.122635929882133', 'A', 'test', '2022-05-25 23:17:30', 1),
-('120.68828087300062', '24.160888450391145', 'A', '北區', '2022-05-25 23:40:59', 1),
-('120.65325357019901', '24.162326199778526', 'B', '麥當勞', '2022-05-25 23:52:37', 1),
-('120.65276440232992', '24.150820692248004', 'A', '公園', '2022-05-25 23:55:46', 1);
 
 -- --------------------------------------------------------
 
@@ -165,23 +118,17 @@ INSERT INTO `footprint_data` (`place_id`, `time`, `customer_id`, `footprint_id`)
 (2, '2022-05-09 15:28:02', 1, 10),
 (2, '2022-05-10 13:36:55', 1, 12),
 (2, '2022-05-10 13:37:03', 1, 13),
-(2, '2022-05-10 13:37:11', 1, 14),
+(2, '2022-06-09 13:37:11', 1, 14),
 (2, '2022-05-10 13:37:30', 1, 15),
-(2, '2022-05-12 08:30:17', 1, 22),
-(2, '2022-05-12 08:46:47', 2, 23),
-(2, '2022-05-12 08:49:32', 2, 24),
-(2, '2022-05-12 08:49:35', 2, 25),
-(2, '2022-05-12 16:51:22', 2, 26),
-(2, '2022-05-12 18:05:30', 1, 28),
 (1, '2022-05-12 18:08:55', 1, 29),
 (2, '2022-05-12 18:12:10', 1, 30),
-(2, '2022-05-12 18:12:37', 1, 31),
-(4, '2022-05-12 20:09:19', 2, 32),
 (4, '2022-05-12 20:10:24', 2, 33),
 (2, '2022-05-15 12:32:19', 1, 34),
 (4, '2022-05-15 12:32:54', 1, 35),
 (2, '2022-05-15 23:04:28', 1, 36),
-(4, '2022-06-02 20:10:24', 1, 37);
+(4, '2022-06-02 20:10:24', 1, 37),
+(2, '2022-06-13 19:36:04', 1, 45),
+(2, '2022-06-13 19:37:20', 2, 46);
 
 -- --------------------------------------------------------
 
@@ -194,18 +141,19 @@ CREATE TABLE `place` (
   `account` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_epidemic` int(11) NOT NULL,
-  `place_id` int(11) NOT NULL
+  `place_id` int(11) NOT NULL,
+  `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `place`
 --
 
-INSERT INTO `place` (`name`, `account`, `password`, `is_epidemic`, `place_id`) VALUES
-('逢甲大學', 'fcu', '12345678', 1, 1),
-('阿姨咖哩', 'regali', '12345678', 0, 2),
-('逢甲胖老爹', 'chicken', '12345678', 0, 3),
-('smile', 'smile', '12345678', 0, 4);
+INSERT INTO `place` (`name`, `account`, `password`, `is_epidemic`, `place_id`, `email`) VALUES
+('逢甲大學', 'fcu', '12345678', 1, 1, ''),
+('阿姨咖哩', 'regali', '12345678', 1, 2, ''),
+('逢甲胖老爹', 'chicken', '12345678', 0, 3, ''),
+('smile', 'smile', '12345678', 0, 4, '');
 
 -- --------------------------------------------------------
 
@@ -384,7 +332,12 @@ INSERT INTO `taiwan_covid19` (`time`, `diagnosenumber`) VALUES
 ('2022-06-08 00:00:00', 80223),
 ('2022-06-09 00:00:00', 72967),
 ('2022-06-10 00:00:00', 68347),
-('2022-06-11 00:00:00', 79663);
+('2022-06-11 00:00:00', 79663),
+('2022-06-12 00:00:00', 50657),
+('2022-06-13 00:00:00', 45110),
+('2022-06-14 00:00:00', 66189),
+('2022-06-15 00:00:00', 68965),
+('2022-06-16 00:00:00', 63221);
 
 --
 -- 已傾印資料表的索引
@@ -401,12 +354,6 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `disease_data`
   ADD PRIMARY KEY (`disease_id`);
-
---
--- 資料表索引 `dl_footprint`
---
-ALTER TABLE `dl_footprint`
-  ADD PRIMARY KEY (`date`);
 
 --
 -- 資料表索引 `epidemicarea_data`
@@ -461,13 +408,13 @@ ALTER TABLE `epidemicarea_data`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `footprint_data`
 --
 ALTER TABLE `footprint_data`
-  MODIFY `footprint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `footprint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `place`
 --
 ALTER TABLE `place`
-  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `place_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 已傾印資料表的限制式
