@@ -28,7 +28,7 @@
         // $mail->Password = "Ash20220411"; //密碼
         
         // $mail->From = "SecondRoom@mspredator.com"; //設定寄件者信箱
-        $mail->FromName = "DBMS 1922系統"; //設定寄件者姓名
+        $mail->FromName = "雲端應用系統開發-足跡系統"; //設定寄件者姓名
 
 
 
