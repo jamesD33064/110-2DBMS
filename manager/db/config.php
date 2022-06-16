@@ -1,8 +1,8 @@
 <?php
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'u558221944_DBMSuser');
-define('DB_PASSWORD', 'Waxdqzces123!');
-define('DB_NAME', 'u558221944_DBMS');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'fcu');
 
 // $link = mysqli_connect(DB_SERVER, "root", "", DB_NAME);
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
